@@ -1,0 +1,15 @@
+{
+  "name": "notification-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot to send notifications",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "telegram"
+  ],
+  "author": "Evgeniy Guzenkov",
+  "license": "ISC"
+}
