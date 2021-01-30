@@ -1,5 +1,5 @@
 import express from 'express';
-import reportRouter from './resources/report/report.router';
+import chatRouter from './resources/chat/chat.router';
 
 const app = express();
 
@@ -12,6 +12,6 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-app.use('/report', reportRouter);
+app.use('/chat', chatRouter);
 
 export default app;
