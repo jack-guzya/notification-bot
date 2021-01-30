@@ -1,5 +1,6 @@
 import express from 'express';
 import chatRouter from './resources/chat/chat.router';
+import tokenRouter from './resources/token/token.router';
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-app.use('/chat', chatRouter);
+app.use('/token', tokenRouter);
+
+tokenRouter.use('/:tokenId/chat', chatRouter);
 
 export default app;
