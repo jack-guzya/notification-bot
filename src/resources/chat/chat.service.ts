@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import bot from '../../bot';
 
-const sendMessage = (id: string, message: string) => {
+const sendMessage = async (id: string, message: string) => {
   bot.telegram.sendMessage(`-${id}`, message);
 };
 
