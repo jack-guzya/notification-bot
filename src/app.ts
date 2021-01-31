@@ -1,20 +1,27 @@
 import express from 'express';
 import error from './errors';
+import { startDevMode, startProdMode } from './bot';
 import chatRouter from './resources/chat/chat.router';
 import tokenRouter from './resources/token/token.router';
 
 process.on('uncaughtException', (err) => {
   console.log(err.message);
   console.log(err.stack);
-  process.exit();
+  process.exitCode = 1;
 });
 
 process.on('unhandledRejection', (err) => {
   console.log(err);
-  process.exit();
+  process.exitCode = 1;
 });
 
 const app = express();
+
+if (process.env.MODE === 'PROD') {
+  startProdMode(app);
+} else {
+  startDevMode();
+}
 
 app.use(express.json());
 
