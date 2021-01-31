@@ -1,6 +1,6 @@
 import express from 'express';
 import tokenService from './token.service';
-import error from '../../errors';
+import error from '../../utils/error';
 
 const router = express.Router();
 

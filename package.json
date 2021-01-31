@@ -2,12 +2,12 @@
   "name": "notification-bot",
   "version": "1.0.0",
   "description": "Telegram bot to send notifications",
-  "main": "index.tsx",
+  "main": "./src/server.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "node ./build/index.js",
-    "dev": "nodemon --config nodemon.json src/index.ts",
-    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/index.ts"
+    "start": "node ./build/server.js",
+    "dev": "nodemon --config nodemon.json src/server.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/server.ts"
   },
   "keywords": [
     "node.js",
@@ -17,6 +17,10 @@
   "license": "ISC",
   "engines": {
     "node": "14.x"
+  },
+  "_moduleAliases": {
+    "@utils": "build/utils",
+    "@resources": "build/resources"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -40,6 +44,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-status-codes": "^2.1.4",
+    "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "telegraf": "^4.0.2",
     "typegram": "^3.1.8"

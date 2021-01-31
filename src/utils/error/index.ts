@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { StatusCodes, getReasonPhrase } from 'http-status-codes';
 import { Request, Response, NextFunction } from 'express';
+import './exceptions';
 import restErrors from './rest-errors';
 
 const { INTERNAL_SERVER_ERROR } = StatusCodes;

@@ -1,7 +1,7 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import chatService from './chat.service';
-import error from '../../errors';
+import error from '../../utils/error';
 
 const router = express.Router();
 

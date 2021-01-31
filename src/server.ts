@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import './common/config';
 import app from './app';
 
