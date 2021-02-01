@@ -15,13 +15,14 @@ bot.on('text', (ctx) => {
   }
 });
 
-export const init = (app: Express): void => {
-  if (process.env.MODE === 'PROD') {
-    bot.startProd(app);
-    return;
+export const init = async (app: Express): Promise<string> => {
+  try {
+    return process.env.MODE === 'PROD'
+      ? await bot.startProd(app)
+      : await bot.startDev();
+  } catch (err) {
+    throw Error(`Can't start the bot:\n${err}`);
   }
-
-  bot.startDev();
 };
 
 export default bot;

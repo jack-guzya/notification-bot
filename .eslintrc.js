@@ -30,5 +30,7 @@ module.exports = {
         ts: 'never',
       },
     ],
+    'lines-between-class-members': 'off',
+    'import/no-unresolved': 'off',
   },
 };

@@ -1,19 +1,14 @@
-/* eslint-disable no-unused-vars */
 import { StatusCodes, getReasonPhrase } from 'http-status-codes';
-import { Request, Response, NextFunction } from 'express';
-import './exceptions';
+import { RequestHandler, ErrorRequestHandler } from 'express';
 import restErrors from './rest-errors';
 
 const { INTERNAL_SERVER_ERROR } = StatusCodes;
 
-type Err = {
-  statusCode: number | null;
-  message: string;
-};
-
-type Handler = (req: Request, res: Response, next: NextFunction) => void;
-
-const wrapper = (callback: Handler): Handler => async (req, res, next) => {
+const wrapper = (callback: RequestHandler): RequestHandler => async (
+  req,
+  res,
+  next
+) => {
   try {
     return await callback(req, res, next);
   } catch (e) {
@@ -21,8 +16,7 @@ const wrapper = (callback: Handler): Handler => async (req, res, next) => {
   }
 };
 
-// eslint-disable-next-line no-unused-vars
-const handle = (err: Err, req: Request, res: Response, next: NextFunction) => {
+const handle: ErrorRequestHandler = (err, req, res, next) => {
   const { statusCode, message } = err;
 
   const error = {
