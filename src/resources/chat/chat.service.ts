@@ -7,7 +7,7 @@ const sendMessage = async (id: string, message: string) => {
   bot.telegram.sendMessage(`-${id}`, message);
 };
 
-const sendDocument = async (id: string, filename: string, payload: object) => {
+const sendDocument = async (id: string, filename: string, payload: unknown) => {
   const filepath = path.join(__dirname, '../../../payload.json');
   await fs.writeFile(filepath, JSON.stringify(payload));
 

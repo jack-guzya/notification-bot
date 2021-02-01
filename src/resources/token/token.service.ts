@@ -1,4 +1,4 @@
-import error from '../../errors';
+import error from '../../utils/error';
 
 const check = (token: string) => {
   if (process.env.BOT_TOKEN !== token) {
